@@ -1,49 +1,71 @@
 <ng-include src="'./app/post/menu.html'"></ng-include>
 <div class="container">
-  <br>
-  <br>
-  <h1>Datos del registro seleccionado</h1>
-  <br>
-  <br>
-  <br>
-  
-  <table class="table">
-    <thead>
-      <tr>
-        <th scope="col">Campo</th>
-        <th scope="col">Datos</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th scope="row">ID</th>
-        <td>{{post.id}}</td>
-      </tr>
-      <tr>
-        <th scope="row">Titulo</th>
-        <td>{{post.titulo}}</td>
-      </tr>
-      <tr>
-        <th scope="row">Cuerpo</th>
-        <td>{{post.cuerpo}}</td>
-      </tr>
-      <tr>
-        <th scope="row">Etiquetas</th>
-        <td>{{post.etiquetas}}</td>
-      </tr>
-      <tr>
-        <th scope="row">Fecha</th>
-        <td>{{post.fecha}}</td>
-      </tr>
-    </tbody>
-  </table>
-
-  <br>
-  <p>Esta seguro que quiere borrar este registro?</p>
   <div class="row">
-    <div class="col align-self-end">
-      <button type="button" class="btn btn-primary btn-lg" ng-click="borrar()">Si</button>
-      <button type="button" class="btn btn-secondary btn-lg" ng-click="volver()">No</button>
-    </div>
+      <div class="col">
+          <form name="userForm" ng-show="!fallo&&!hecho">
+              <div class="form-group row">
+                  <label for="titulo" class="col-sm-2 col-form-label">Id:</label>
+                  <div class="col-sm-10">
+                      <input type="text" ng-model="id" value="{{id}}" class="form-control" readonly />
+                  </div>
+              </div>
+              <div class="form-group row">
+                  <label for="titulo" class="col-sm-2 col-form-label">Titulo:</label>
+                  <div class="col-sm-10">
+                      <input type="text" ng-model="titulo" class="form-control" name="titulo" value="{{titulo}}"
+                          readonly />
+
+                  </div>
+              </div>
+              <div class="form-group row">
+                  <label for="cuerpo" class="col-sm-2 col-form-label">Cuerpo:</label>
+                  <div class="col-sm-10">
+                      <div class="form-group">
+                          <textarea class="form-control rounded-0" rows="10" id="exampleFormControlTextarea2" rows="3"
+                              ng-model="cuerpo" class="form-control" name="cuerpo" value="{{cuerpo}}"
+                              readonly></textarea>
+                      </div>
+
+                  </div>
+              </div>
+              <div class="form-group row">
+                  <label for="etiquetas" class="col-sm-2 col-form-label">Etiquetas:</label>
+                  <div class="col-sm-10">
+                      <input type="text" ng-model="etiquetas" class="form-control" name="etiquetas"
+                          value="{{etiquetas}}" readonly />
+                  </div>
+              </div>
+
+              <br>
+              <p>¿Seguro que quiere elimnar el post?</p>
+              <div class="row">
+                  <button type="button" class="btn btn-primary" ng-click="remove()">Eliminar datos</button>
+              </div>
+          </form>
+          <div ng-show="!fallo&&hecho">
+              <div class="alert alert-success text-center" role="alert">
+                  <h2>El Post se ha eliminado con éxito</h2>
+                  <button class="btn btn-primary" ng-click="cerrar()">Cerrar</button>
+                  <button class="btn btn-primary" ng-click="volver()">Volver</button>
+              </div>
+          </div>
+          <div ng-show="fallo&&hecho">
+              <div class="alert alert-danger text-center" role="alert">
+                  <h2>Ha ocurrido un error al eliminar el Post</h2>
+                  <p ng-show="falloMensaje!=''">{{falloMensaje}}</p>
+                  <button class="btn btn-primary" ng-click="cerrar()">Cerrar</button>
+                  <button class="btn btn-primary" ng-click="volver()">Volver</button>
+              </div>
+          </div>
+          <div ng-show="fallo&&!hecho">
+              <div class="alert alert-danger text-center" role="alert">
+                  <h2>Ha habido un error al recibir datos del Post desde el servidor</h2>
+                  <p ng-show="falloMensaje!=''">{{falloMensaje}}</p>
+                  <button class="btn btn-primary" ng-click="cerrar()">Cerrar</button>
+                  <button class="btn btn-primary" ng-click="volver()">Volver</button>
+              </div>
+          </div>
+      </div>
   </div>
+</div>
 </div>
