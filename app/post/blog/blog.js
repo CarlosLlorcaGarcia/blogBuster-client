@@ -3,7 +3,6 @@ var miControlador = miModulo.controller(
     ['$scope', '$http', '$routeParams', '$window','promesasService', '$location', 'auth', function ($scope, $http, $routeParams, $window, promesasService, $location, auth) {
         $scope.authStatus = auth.data.status;
         $scope.authUsername = auth.data.message;
-
         
         $scope.paginaActual = parseInt($routeParams.page);
         $scope.rppActual = parseInt($routeParams.pageRows);

@@ -8,7 +8,7 @@
       <ul class="pagination">
         <li class="page-item" ng-class="{'active':(paginaActual==p)}" ng-disabled="p == '...'"
           ng-repeat="p in botonera track by $index">
-          <a class="page-link" ng-if="p != '...'" href="#!/home/{{ p }}/{{ rppActual }}">{{ p }}</a>
+          <a class="page-link" ng-if="p != '...'" href="#!/home/{{ rppActual }}/{{ p }}">{{p}}</a>
           <span class="page-link" ng-if="p == '...'">{{ p }}</span>
         </li>
       </ul>
@@ -29,17 +29,20 @@
             Etiquetas relacionadas: <strong>{{post.etiquetas}}</strong>
           </footer>
         </blockquote>
+        <div class="card-body">
+          <a class="btn btn-info" href="#!/post/view/{{post.id}}">Leer más ></a>
       </div>
     </div>
     <br>
     <br>
   </div>
+</div>
   <div class="row justify-content-center">
     <nav aria-label="Page navigation example  col center-block">
       <ul class="pagination">
         <li class="page-item" ng-class="{'active':(paginaActual==p)}" ng-disabled="p == '...'"
           ng-repeat="p in botonera track by $index">
-          <a class="page-link" ng-if="p != '...'" href="#!/home/{{ p }}/{{ rppActual }}">{{ p }}</a>
+          <a class="page-link" ng-if="p != '...'" href="#!/home/{{ rppActual }}/{{ p }}">{{p}}</a>
           <span class="page-link" ng-if="p == '...'">{{ p }}</span>
         </li>
       </ul>
