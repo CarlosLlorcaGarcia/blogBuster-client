@@ -1,0 +1,96 @@
+<ng-include src="'./app/post/menu.html'"></ng-include>
+<div class="container">
+
+  <br>
+  <div class="row">
+    <nav aria-label="Page navigation example  col">
+      <ul class="pagination">
+        <li class="page-item" ng-class="{'active':(paginaActual==p)}" ng-disabled="p == '...'"
+          ng-repeat="p in botonera track by $index">
+          <a class="page-link" ng-if="p != '...'" href="#!/post/plist/{{ p }}/{{ rppActual }}">{{ p }}</a>
+          <span class="page-link" ng-if="p == '...'">{{ p }}</span>
+        </li>
+      </ul>
+    </nav>
+    <div class="col-md-auto ml-auto">
+      <p>Resultados:</p>
+    </div>
+    <select id="inputState" class="form-control col col-lg-2" ng-model="mySelect" ng-change="showSelectValue(mySelect)">
+      <option ng-selected="filasPagina == '10'">10</option>
+      <option ng-selected="filasPagina == '25'">25</option>
+      <option ng-selected="filasPagina == '50'">50</option>
+    </select>
+
+  </div>
+  <br>
+  <div class="row">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">id
+            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+              <a href="#!/post/plist/{{ paginaActual }}/{{ rppActual }}/id/asc" class="btn btn-primary btn-sm"
+                role="button" aria-pressed="true"><i class="fas fa-sort-up"></i></i></a>
+              <a href="#!/post/plist/{{ paginaActual }}/{{ rppActual }}/id/desc" class="btn btn-primary btn-sm"
+                role="button" aria-pressed="true"><i class="fas fa-sort-down"></i></i></a>
+            </div>
+          </th>
+          <th scope="col">Titulo
+            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+              <a href="#!/post/plist/{{ paginaActual }}/{{ rppActual }}/titulo/asc" class="btn btn-primary btn-sm"
+                role="button" aria-pressed="true"><i class="fas fa-sort-up"></i></i></a>
+              <a href="#!/post/plist/{{ paginaActual }}/{{ rppActual }}/titulo/desc" class="btn btn-primary btn-sm"
+                role="button" aria-pressed="true"><i class="fas fa-sort-down"></i></i></a>
+            </div>
+          </th>
+          <th scope="col">Cuerpo
+            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+              <a href="#!/post/plist/{{ paginaActual }}/{{ rppActual }}/cuerpo/asc" class="btn btn-primary btn-sm"
+                role="button" aria-pressed="true"><i class="fas fa-sort-up"></i></i></a>
+              <a href="#!/post/plist/{{ paginaActual }}/{{ rppActual }}/cuerpo/desc" class="btn btn-primary btn-sm"
+                role="button" aria-pressed="true"><i class="fas fa-sort-down"></i></i></a>
+            </div>
+          </th>
+          <th scope="col">Etiquetas
+            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+              <a href="#!/post/plist/{{ paginaActual }}/{{ rppActual }}/etiquetas/asc" class="btn btn-primary btn-sm"
+                role="button" aria-pressed="true"><i class="fas fa-sort-up"></i></i></a>
+              <a href="#!/post/plist/{{ paginaActual }}/{{ rppActual }}/etiquetas/desc" class="btn btn-primary btn-sm"
+                role="button" aria-pressed="true"><i class="fas fa-sort-down"></i></i></a>
+            </div>
+          </th>
+          <th scope="col">Fecha publicación
+            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+              <a href="#!/post/plist/{{ paginaActual }}/{{ rppActual }}/fecha/asc" class="btn btn-primary btn-sm"
+                role="button" aria-pressed="true"><i class="fas fa-sort-up"></i></i></a>
+              <a href="#!/post/plist/{{ paginaActual }}/{{ rppActual }}/fecha/desc" class="btn btn-primary btn-sm"
+                role="button" aria-pressed="true"><i class="fas fa-sort-down"></i></i></a>
+            </div>
+          </th>
+          <th scope="col">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="filas in tablaPosts">
+          <th scope="row">{{filas.id}}</th>
+          <td>{{filas.titulo}}</td>
+          <td>{{filas.cuerpo}}</td>
+          <td>{{filas.etiquetas}}</td>
+          <td>{{filas.fecha}}</td>
+          <td>
+            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+              <a href="#!/post/view/{{filas.id}}" class="btn btn-primary btn-sm" role="button" aria-pressed="true"><i
+                  class="fas fa-eye"></i></a>
+              <a href="#!/post/edit/{{filas.id}}" class="btn btn-primary btn-sm" role="button" aria-pressed="true"><i
+                  class="fas fa-edit"></i></a>
+              <a href="#!/post/remove/{{filas.id}}" class="btn btn-primary btn-sm" role="button" aria-pressed="true"><i
+                  class="fas fa-trash-alt"></i></a>
+            </div>
+
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>

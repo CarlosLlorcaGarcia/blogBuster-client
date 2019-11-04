@@ -1,0 +1,33 @@
+<ng-include src="'./app/post/menu.html'"></ng-include>
+            <div class="form-center">
+                <div class="login-container">
+                        <div class="card-body">
+                            <form class="form" role="form" autocomplete="off" id="formLogin" novalidate="" name="login"
+                                method="POST">
+                                <div class="form-group">
+                                        <label for="uname1">Nombre de usuario:</label>
+                                        <input type="text" class="form-control"
+                                            id="uname1" ng-model="form.username" name="username"
+                                            ng-class="{'is-invalid':login.username.$invalid&&!login.username.$pristine}"
+                                            ng-pattern="/^[0-9a-zA-Z]+$/i" ng-required="true">
+                                            <span ng-show="login.username.$error.required" class="invalid-feedback">
+                                                El nombre de usuario no es válido. Por favor, revise e inténtalo de nuevo
+                                            </span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Contraseña:</label>
+                                        <input type="password" class="form-control" id="password"
+                                            ng-model="form.password" name="password"
+                                            ng-class="{'is-invalid':login.password.$invalid&&!login.password.$pristine}"
+                                            ng-required="true">
+                                        <span ng-show="login.password.$error.required" class="invalid-feedback">
+                                            La contraseña no es válida. Por favor, revise e inténtalo de nuevo
+                                        </span>
+                                    </div>
+                                <button type="submit" class="btn btn-primary btn-lg float-right"
+                                    id="btnLogin" ng-disabled="login.$invalid" ng-click="iniciarSesion()">Iniciar sesión <i class="fas fa-sign-in-alt"></i></button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>

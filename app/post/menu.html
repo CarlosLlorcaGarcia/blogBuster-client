@@ -1,0 +1,34 @@
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top bg-primary">
+  <a class="navbar-brand" href="#">BlogBuster</a>
+    <!-- Toggler/collapsibe Button -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar" aria-controls="navbarSupportedContent">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <!-- Navbar links -->
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item" ng-class="{'active':(controller=='postBlogController')}">
+        <a class="nav-link" href="#!/blog/1/10">Blog</a>
+      </li>
+      <li class="nav-item" ng-class="{'active':(controller=='postPlistController')}">
+        <a class="nav-link" href="#!/post/plist/1/10">Listado de posts</a>
+      </li>
+      <li class="nav-item" ng-class="{'active':(controller=='postNewController')}">
+        <a class="nav-link" href="#!/post/new/">Nueva entrada</a>
+      </li>
+    </ul>
+      <ul class="navbar-nav align-self-end" id="nav">
+        <li class="nav-item" ng-show="authStatus!=200">
+          <a class="nav-link" ng-class="{'active': sitio=='userLoginController'}" href="#!/login">Iniciar Sesión <i
+              class="fas fa-sign-in-alt"></i></a>
+        </li>
+        <li class="nav-item" ng-show="authStatus==200">
+          <span class="nav-link">Usuario: {{authUsername}}</span>
+        </li>
+        <li class="nav-item" ng-show="authStatus==200">
+          <a class="nav-link" ng-class="{'active': sitio=='userLogoutController'}" href="#!/logout">Cerrar Sesión <i
+              class="fas fa-sign-out-alt"></i></a>
+        </li>
+      </ul>
+  </div>
+</nav>
