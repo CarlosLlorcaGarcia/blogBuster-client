@@ -14,11 +14,12 @@ var miControlador = miModulo.controller(
         $scope.hecho = false;
         $scope.falloMensaje = "";
 
+        var simplemde = new SimpleMDE({ element: document.getElementById("textareaEdit") });
         promesasService.ajaxGet('post', $scope.id)
             .then(function (response) {
                 $scope.id = response.data.message.id;
                 $scope.titulo = response.data.message.titulo;
-                $scope.cuerpo = response.data.message.cuerpo;
+                $scope.cuerpo = simplemde.value(response.data.message.cuerpo);
                 $scope.etiquetas = response.data.message.etiquetas;
                 $scope.fecha = response.data.message.fecha;
             }, function (error) {
