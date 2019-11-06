@@ -8,7 +8,7 @@
             <a href="#">Carlos Llorca</a>
           </p>
           <hr>
-          <p>{{post.fecha}}</p>
+          <p>{{post.fecha | stringToDate | date : "dd/MM/yyyy"}}</p>
           <hr>
           <img class="img-fluid rounded" src="http://placehold.it/900x300" alt="">
           <hr>

@@ -22,6 +22,7 @@ var miControlador = miModulo.controller(
               $scope.titulo = response.data.message.titulo;
               $scope.cuerpo = response.data.message.cuerpo;
               $scope.etiquetas = response.data.message.etiquetas;
+              $scope.fecha = respuesta.fecha;
           }, function () {
               $scope.fallo = true;
           })

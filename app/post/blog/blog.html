@@ -36,7 +36,7 @@
       <a href="#!/post/view/{{post.id}}" rel="nofollow" class="btn btn-primary">Leer más &rarr;</a>
     </div>
     <div class="card-footer text-muted">
-        Fecha: {{post.fecha}} by
+        Fecha: {{post.fecha | stringToDate | date : "dd/MM/yyyy"}} by
       <a href="#">Carlos Llorca</a>
       <br>
       Etiquetas relacionadas: <strong>{{post.etiquetas}}</strong>

@@ -48,12 +48,9 @@
         <div class="form-group row">
           <label for="fecha" class="col-sm-2 col-form-label">Fecha:</label>
           <div class="col-sm-10">
-            <input type="text" ng-model="fecha" class="form-control"
+            <md-datepicker ng-model="fecha" md-placeholder="Enter date"
               ng-class="{ 'is-invalid' : !userForm.fecha.$valid && !userForm.fecha.$pristine}" name="fecha"
-              ng-required="true" value="{{post.fecha}}" />
-            <div class="invalid-feedback" ng-show="userForm.fecha.$error.pattern">
-              El operando introducido es incorrecto, sólo debe llevar números
-            </div>
+              ng-required="true"></md-datepicker>
           </div>
         </div>
         <br>

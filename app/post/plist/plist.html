@@ -76,7 +76,7 @@
           <td>{{filas.titulo}}</td>
           <td>{{filas.cuerpo}}</td>
           <td>{{filas.etiquetas}}</td>
-          <td>{{filas.fecha}}</td>
+          <td>{{filas.fecha | stringToDate | date : "dd/MM/yyyy"}}</td>
           <td>
             <div class="btn-group btn-group-toggle" data-toggle="buttons">
               <a href="#!/post/view/{{filas.id}}" class="btn btn-primary btn-sm" role="button" aria-pressed="true"><i

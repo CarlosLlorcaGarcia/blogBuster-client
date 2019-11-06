@@ -29,7 +29,8 @@ var miControlador = miModulo.controller(
                 const datos = {
                     titulo: $scope.titulo,
                     cuerpo: $scope.cuerpo,
-                    etiquetas: $scope.etiquetas
+                    etiquetas: $scope.etiquetas,
+                    fecha: $scope.fecha
                 }
                 var jsonToSend = {
                     data: JSON.stringify(datos)

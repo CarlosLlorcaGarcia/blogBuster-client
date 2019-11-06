@@ -21,7 +21,7 @@ var miControlador = miModulo.controller(
                 $scope.titulo = response.data.message.titulo;
                 $scope.cuerpo = simplemde.value(response.data.message.cuerpo);
                 $scope.etiquetas = response.data.message.etiquetas;
-                $scope.fecha = response.data.message.fecha;
+                $scope.fecha = moment(response.data.message.fecha, 'DD/MM/YYYY HH:mm').toDate();
             }, function (error) {
                 $scope.fallo = true;
             });
@@ -30,7 +30,7 @@ var miControlador = miModulo.controller(
             const datos = {
                 id: $routeParams.id,
                 titulo: $scope.titulo,
-                cuerpo: $scope.cuerpo,
+                cuerpo: simplemde.value($scope.cuerpo),
                 etiquetas: $scope.etiquetas,
                 fecha: $scope.fecha
             }

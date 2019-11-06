@@ -10,10 +10,10 @@
       <li class="nav-item" ng-class="{'active':(controller=='postBlogController')}">
         <a class="nav-link" href="#!/blog/1/10">Blog</a>
       </li>
-      <li class="nav-item" ng-class="{'active':(controller=='postPlistController')}">
+      <li class="nav-item" ng-show="authStatus==200" ng-class="{'active':(controller=='postPlistController')}">
         <a class="nav-link" href="#!/post/plist/1/10">Listado de posts</a>
       </li>
-      <li class="nav-item" ng-class="{'active':(controller=='postNewController')}">
+      <li class="nav-item" ng-show="authStatus==200" ng-class="{'active':(controller=='postNewController')}">
         <a class="nav-link" href="#!/post/new/">Nueva entrada</a>
       </li>
     </ul>
